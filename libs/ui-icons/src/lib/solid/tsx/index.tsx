@@ -1,0 +1,13 @@
+export { SOLArrowRotate } from './SOLArrowRotate';
+export { SOLBolt } from './SOLBolt';
+export { SOLCircleLeft } from './SOLCircleLeft';
+export { SOLCircleRight } from './SOLCircleRight';
+export { SOLEllipsisVertical } from './SOLEllipsisVertical';
+export { SOLGear } from './SOLGear';
+export { SOLArrowUpDown } from './SOLArrowUpDown';
+export { SOLPenToSquare } from './SOLPenToSquare';
+export { SOLPlay } from './SOLPlay';
+export { SOLSpinner } from './SOLSpinner';
+export { SOLSun } from './SOLSun';
+export { SOLXMark } from './SOLXMark';
+export { SOLTrashCan } from './SOLTrashCan';

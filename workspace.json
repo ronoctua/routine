@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "projects": {
+    "auth-api": "libs/auth-api",
+    "auth-middleware": "libs/auth-middleware",
+    "auth-react": "libs/auth-react",
+    "models": "libs/models",
+    "routine-web": "apps/routine-web",
+    "routine-web-e2e": "apps/routine-web-e2e",
+    "ui-effects": "libs/ui-effects",
+    "ui-icons": "libs/ui-icons",
+    "ui-react": "libs/ui-react",
+    "ui-react-e2e": "apps/ui-react-e2e",
+    "ui-themes": "libs/ui-themes",
+    "ui-web": "libs/ui-web"
+  }
+}

@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// The current `nexus-prisma` (0.35.0) is an unstable version.
+// A beta version has not been released yet.
+// https://github.com/graphql-nexus/nexus-plugin-prisma/issues/1039
+generator nexusPrisma {
+  provider = "nexus-prisma"
+}
+
+// For now it is necessary to set the parameter "pgbouncer=true" in the
+// variable "DATABASE_URL" of the Postgres server to use PgBouncer and
+// it is necessary to remove the same parameter when running migrations.
+// https://www.prisma.io/docs/guides/performance-and-optimization/connection-management/configure-pg-bouncer
+// https://github.com/prisma/prisma/issues/6485
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// These groups must also be created in the authentication service (Cognito).
+enum Group {
+  ADMIN
+  BOT
+  CHECKLIST
+  DEVELOPER
+  EXPERIMENTAL
+  MAINTAINER
+  USER
+}
+
+// TODO: Test "CalDAV" compatibility e create a converter for it.
+model Item {
+  id           String         @id
+  owners       UsersOnItems[]
+  label        String
+  content      String
+  contentType  String
+  tags         String[]
+  location     String?
+  latitude     Float?
+  longitude    Float?
+  isPrivate    Boolean        @default(true)
+  isActive     Boolean        @default(true)
+  isTask       Boolean        @default(true)
+  isReminder   Boolean        @default(false)
+  isArchived   Boolean        @default(false)
+  isDone       Boolean        @default(false)
+  isAllDay     Boolean        @default(false)
+  actionOnDone String
+  priority     Int?
+  recurrence   String?
+  status       String?
+  timeZone     String?
+  startDate    String?
+  endDate      String?
+  startTime    String?
+  endTime      String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model Score {
+  id              String  @id
+  owner           User    @relation(fields: [ownerId], references: [id])
+  ownerId         String
+  totalPercentage Int
+  percentages     Json?
+  extraData       Json?
+  note            String?
+  date            String
+  category        String
+}
+
+model Connections {
+  ipAddress String   @unique
+  owner     User     @relation(fields: [ownerId], references: [id])
+  ownerId   String
+  token     String
+  userAgent String?
+  country   String?
+  city      String?
+  region    String?
+  latitude  Float?
+  longitude Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LastConnections {
+  ipAddress String   @unique
+  owner     User     @relation(fields: [ownerId], references: [id])
+  ownerId   String
+  token     String
+  userAgent String?
+  country   String?
+  city      String?
+  region    String?
+  latitude  Float?
+  longitude Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id              String            @id
+  authId          String            @unique
+  email           String            @unique
+  nickname        String            @unique
+  password        String
+  groups          Group[]
+  items           UsersOnItems[]
+  scores          Score[]
+  connections     Connections[]
+  lastConnections LastConnections[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model UsersOnItems {
+  item             Item     @relation(fields: [itemId], references: [id])
+  itemId           String
+  user             User     @relation(fields: [userId], references: [id])
+  userId           String
+  category         String
+  itemOrder        Float
+  notificationDate String?
+  assignedAt       DateTime @default(now())
+
+  @@id([itemId, userId])
+}

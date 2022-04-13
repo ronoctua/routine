@@ -1,0 +1,36 @@
+{
+  "close": "Fechar",
+  "open": "Abrir",
+  "save": "Salvar",
+  "delete": "Deletar",
+  "cancel": "Cancelar",
+  "submit": "Enviar",
+  "reset": "Redefinir",
+  "edit": "Editar",
+  "add": "Adicionar",
+  "login": "Entrar",
+  "logout": "Sair",
+  "nickname": "Nickname",
+  "email": "E-mail",
+  "password": "Senha",
+  "verified": "Verificado",
+  "unverified": "Não verificado",
+  "language": {
+    "language": "Idioma",
+    "en": "Inglês",
+    "pt-BR": "Português"
+  },
+  "theme": {
+    "theme": "Tema",
+    "wood": "Madeira",
+    "futurism": "Futurismo",
+    "reptilian": "Reptiliano"
+  },
+  "session": {
+    "settings": "Configurações",
+    "metrics": "Métricas",
+    "sports": "Esportes",
+    "notes": "Notas",
+    "checklist": "Checklist"
+  }
+}

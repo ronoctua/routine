@@ -1,0 +1,82 @@
+{
+  "root": "apps/routine-web",
+  "sourceRoot": "apps/routine-web",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/routine-web",
+        "outputPath": "dist/apps/routine-web"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "routine-web:build",
+        "dev": true,
+        "hostname": "localhost",
+        "port": 3007
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "routine-web:build:production",
+          "dev": false,
+          "port": 3007
+        }
+      }
+    },
+    "generate-and-serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx run models:prisma-generate",
+          "nx run routine-web:serve"
+        ],
+        "parallel": false
+      }
+    },
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx run models:prisma-generate"],
+        "parallel": false
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "routine-web:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/routine-web"],
+      "options": {
+        "jestConfig": "apps/routine-web/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/routine-web/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "prisma db seed",
+        "cwd": "apps/routine-web",
+        "envFile": ".env.local"
+      }
+    }
+  },
+  "tags": []
+}

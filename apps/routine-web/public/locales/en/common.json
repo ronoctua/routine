@@ -1,0 +1,36 @@
+{
+  "close": "Close",
+  "open": "Open",
+  "save": "Save",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "submit": "Submit",
+  "reset": "Reset",
+  "edit": "Edit",
+  "add": "Add",
+  "login": "Login",
+  "logout": "Logout",
+  "nickname": "Nickname",
+  "email": "Email",
+  "password": "Password",
+  "verified": "Verified",
+  "unverified": "Unverified",
+  "language": {
+    "language": "Language",
+    "en": "English",
+    "pt-BR": "Portuguese"
+  },
+  "theme": {
+    "theme": "Theme",
+    "wood": "Wood",
+    "futurism": "Futurism",
+    "reptilian": "Reptilian"
+  },
+  "session": {
+    "settings": "Settings",
+    "metrics": "Metrics",
+    "sports": "Sports",
+    "notes": "Notes",
+    "checklist": "Checklist"
+  }
+}

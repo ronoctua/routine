@@ -1,0 +1,93 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@nrwl/nx", "eslint-plugin-import-helpers"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ],
+        "consistent-return": "off",
+        "import/no-unresolved": "error",
+        "import/prefer-default-export": "off",
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "js": "never",
+            "jsx": "never",
+            "ts": "never",
+            "tsx": "never"
+          }
+        ],
+        "import/order": "off",
+        "import-helpers/order-imports": [
+          "warn",
+          {
+            "newlinesBetween": "always",
+            "groups": ["module", "/^@//", ["parent", "sibling", "index"]],
+            "alphabetize": {
+              "order": "asc",
+              "ignoreCase": true
+            }
+          }
+        ],
+        "no-console": "warn",
+        "no-empty-function": "off",
+        "no-nested-ternary": "off",
+        "no-plusplus": "off",
+        "no-restricted-syntax": "off",
+        "no-shadow": "off",
+        "no-unused-expressions": "off",
+        "prettier/prettier": "warn"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "_"
+          }
+        ],
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": ["tsconfig.base.json"]
+      },
+      "node": {
+        "project": ["tsconfig.base.json"]
+      }
+    }
+  }
+}

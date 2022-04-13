@@ -1,0 +1,59 @@
+{
+  "root": "libs/models",
+  "sourceRoot": "libs/models/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/models/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/models"],
+      "options": {
+        "jestConfig": "libs/models/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "prisma-studio": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "prisma studio --schema=./src/prisma/schema.prisma",
+        "cwd": "libs/models",
+        "envFile": ".env.local"
+      }
+    },
+    "prisma-generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "prisma generate --schema=./src/prisma/schema.prisma",
+        "cwd": "libs/models",
+        "envFile": ".env.local"
+      }
+    },
+    "prisma-migrate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "DATABASE_URL=$MIGRATE_DB_URL ; prisma migrate dev --schema=./src/prisma/schema.prisma --name={args.name}"
+        ],
+        "cwd": "libs/models",
+        "envFile": ".env.local"
+      }
+    },
+    "prisma-reset": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "DATABASE_URL=$MIGRATE_DB_URL ; prisma migrate reset --schema=./src/prisma/schema.prisma --force {args}"
+        ],
+        "cwd": "libs/models",
+        "envFile": ".env.local"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "root": "libs/auth-middleware",
+  "sourceRoot": "libs/auth-middleware/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/auth-middleware/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth-middleware"],
+      "options": {
+        "jestConfig": "libs/auth-middleware/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

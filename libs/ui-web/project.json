@@ -1,0 +1,23 @@
+{
+  "root": "libs/ui-web",
+  "sourceRoot": "libs/ui-web/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ui-web/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-web"],
+      "options": {
+        "jestConfig": "libs/ui-web/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

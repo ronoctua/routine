@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@routine/auth-api": ["libs/auth-api/src/index.ts"],
+      "@routine/auth-middleware": ["libs/auth-middleware/src/index.ts"],
+      "@routine/auth-react": ["libs/auth-react/src/index.ts"],
+      "@routine/models": ["libs/models/src/index.ts"],
+      "@routine/ui-effects": ["libs/ui-effects/src/index.ts"],
+      "@routine/ui-icons": ["libs/ui-icons/src/index.ts"],
+      "@routine/ui-react": ["libs/ui-react/src/index.ts"],
+      "@routine/ui-themes": ["libs/ui-themes/src/index.ts"],
+      "@routine/ui-web": ["libs/ui-web/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
