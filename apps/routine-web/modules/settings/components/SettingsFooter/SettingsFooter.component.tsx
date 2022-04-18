@@ -6,15 +6,15 @@ import { DashboardMenu } from '../../../dashboard/components/DashboardMenu';
 export const SettingsFooter = () => {
   return (
     <CommandBar
-      rightChildrenDirection="column"
+      rightChildrenDirection='column'
       rightChildren={
         <DashboardMenu />
         // <Button variant="ghost" radius="none" status={'loading'} disabled />
       }>
       <Surface
-        border="none"
-        padding="none"
-        radius="none"
+        border='none'
+        padding='none'
+        radius='none'
         fullWidth
         centerContent
         secondaryText>

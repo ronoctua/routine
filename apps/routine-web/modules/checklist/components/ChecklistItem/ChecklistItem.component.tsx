@@ -43,7 +43,7 @@ export const ChecklistItem = forwardRef<
     const MoveButton = useCallback(
       () =>
         disabled ? (
-          <Surface padding="smallest">
+          <Surface padding='smallest'>
             <span data-movable-handle style={{ display: 'none' }} />
             <Icon>
               <SOLArrowUpDown />
@@ -51,10 +51,10 @@ export const ChecklistItem = forwardRef<
           </Surface>
         ) : (
           <Surface
-            padding="smallest"
+            padding='smallest'
             data-movable-handle
             data-is-dragged={isDragged}
-            centerContent="true">
+            centerContent='true'>
             <Icon>
               <SOLArrowUpDown />
             </Icon>
@@ -65,12 +65,12 @@ export const ChecklistItem = forwardRef<
 
     const ItemLeftControls = useCallback(
       () => (
-        <div data-class="item-left-controls">
-          <Surface padding="smallest" centerContent="true">
+        <div data-class='item-left-controls'>
+          <Surface padding='smallest' centerContent='true'>
             <Label
-              aria-label="Mark as done"
-              horizontal="true"
-              centerContent="true">
+              aria-label='Mark as done'
+              horizontal='true'
+              centerContent='true'>
               <Checkbox
                 onChange={(event) => {
                   itemData.item.isDone = event.target.checked;
@@ -81,7 +81,7 @@ export const ChecklistItem = forwardRef<
                 }}
                 checked={itemData.item.isDone}
                 disabled={disabled}
-                size="small"
+                size='small'
               />
             </Label>
           </Surface>
@@ -95,11 +95,11 @@ export const ChecklistItem = forwardRef<
     const ItemContent = useCallback(
       () => (
         <Surface
-          direction="row"
-          padding="small"
+          direction='row'
+          padding='small'
           fullHeight
           fullWidth
-          data-class="item-content"
+          data-class='item-content'
           data-is-done={itemData.item.isDone}
           onClick={() => handleSelectItem({ targetItem: itemData })}>
           {itemData.item.content}

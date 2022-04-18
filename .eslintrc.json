@@ -48,6 +48,7 @@
             }
           }
         ],
+        "jsx-quotes": ["error", "prefer-single"],
         "no-console": "warn",
         "no-empty-function": "off",
         "no-nested-ternary": "off",

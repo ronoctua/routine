@@ -96,7 +96,7 @@ export const HeatmapCalendar = forwardRef<
       element: () => (
         <div
           key={targetDateString}
-          data-class="heatmap-day-element"
+          data-class='heatmap-day-element'
           className={elementClassName}
           onMouseOver={() => handleMouseOver(targetItem)}>
           {targetDate.format('DD')}
@@ -109,18 +109,18 @@ export const HeatmapCalendar = forwardRef<
 
   return (
     <StyledHeatmapCalendar ref={forwardRef} {...props}>
-      <div data-class="heatmap-content-container">
+      <div data-class='heatmap-content-container'>
         {daysElementsArray.reverse().map((dayElement) => (
           <dayElement.element key={dayElement.key} />
         ))}
       </div>
 
       {targetData && targetData.date && (
-        <div data-class="heatmap-tooltip-container">
+        <div data-class='heatmap-tooltip-container'>
           <div>
             <Button
-              variant="ghost"
-              padding="smaller"
+              variant='ghost'
+              padding='smaller'
               leftIcon={<SOLXMark />}
               onClick={() => setTargetData(null)}
             />
@@ -132,7 +132,7 @@ export const HeatmapCalendar = forwardRef<
             </span>
             {targetData.totalPercentage ? (
               <span
-                data-class="total-percentage"
+                data-class='total-percentage'
                 className={targetData.className}>
                 <strong>{targetData.totalPercentage}%</strong>
               </span>
@@ -143,16 +143,16 @@ export const HeatmapCalendar = forwardRef<
 
           {targetData.percentages &&
             Object.keys(targetData.percentages).map((key) => (
-              <div key={targetData.date + '-' + key}>
-                <span data-class="title">{key}</span>
+              <div key={`${targetData.date} - ${key}`}>
+                <span data-class='title'>{key}</span>
                 <span>{targetData.percentages[key]}%</span>
               </div>
             ))}
 
           {targetData.extraData &&
             Object.keys(targetData.extraData).map((key) => (
-              <div key={targetData.date + '-' + key}>
-                <span data-class="title">{key}</span>
+              <div key={`${targetData.date} - ${key}`}>
+                <span data-class='title'>{key}</span>
                 <span>{targetData.extraData[key]}</span>
               </div>
             ))}
@@ -160,7 +160,7 @@ export const HeatmapCalendar = forwardRef<
           {targetData.note && (
             <div>
               <Surface
-                padding="smallest"
+                padding='smallest'
                 status={'secondary'}
                 style={{ minWidth: '80px' }}>
                 <span>{targetData.note}</span>

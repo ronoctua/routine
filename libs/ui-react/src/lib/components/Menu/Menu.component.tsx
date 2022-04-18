@@ -61,7 +61,7 @@ export const Menu: React.FC<MenuProps> = ({
         <StyledMenuContent
           display={display || currentMenuState.isVisible}
           contentPosition={contentPosition || 'left'}>
-          <StyledMenuContentWrapper data-id="menu-content-wrapper" {...props}>
+          <StyledMenuContentWrapper data-id='menu-content-wrapper' {...props}>
             {closeButtonPosition === 'top' && <CloseMenuButton />}
             {children}
             {closeButtonPosition === 'bottom' && <CloseMenuButton />}

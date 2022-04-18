@@ -132,7 +132,7 @@ export const Checklist = () => {
         )}
 
         {checklistState.error && (
-          <Surface status="negative">
+          <Surface status='negative'>
             Fetching Error
             {checklistState.error.message && (
               <>

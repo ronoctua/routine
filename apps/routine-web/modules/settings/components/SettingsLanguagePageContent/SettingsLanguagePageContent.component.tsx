@@ -38,18 +38,18 @@ export const SettingsLanguagePageContent = () => {
           <h3>{t('language.language')}</h3>
 
           <Link
-            href=""
+            href=''
             shallow
-            locale="en"
+            locale='en'
             onClick={() => handleLanguageChange('en')}
             rightIndicator={i18n?.language === 'en'}>
             {t('language.en')}
           </Link>
 
           <Link
-            href=""
+            href=''
             shallow
-            locale="pt-BR"
+            locale='pt-BR'
             onClick={() => handleLanguageChange('pt-BR')}
             rightIndicator={i18n?.language === 'pt-BR'}>
             {t('language.pt-BR')}

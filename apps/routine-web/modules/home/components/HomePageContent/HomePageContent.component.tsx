@@ -91,14 +91,14 @@ export const HomePageContent = () => {
         </Surface>
 
         <Surface>
-          <Link status="secondary" href="/settings">
+          <Link status='secondary' href='/settings'>
             <h3>@user-nickname</h3>
           </Link>
 
-          <Link href="/metrics">{t('session.metrics')}</Link>
-          <Link href="/health">{t('session.sports')}</Link>
-          <Link href="/notes">{t('session.notes')}</Link>
-          <Link href="/checklist">{t('session.checklist')}</Link>
+          <Link href='/metrics'>{t('session.metrics')}</Link>
+          <Link href='/health'>{t('session.sports')}</Link>
+          <Link href='/notes'>{t('session.notes')}</Link>
+          <Link href='/checklist'>{t('session.checklist')}</Link>
         </Surface>
 
         <Surface>

@@ -18,7 +18,7 @@ export const Checkbox = forwardRef<
   ElementRef<typeof StyledCheckbox>,
   CheckboxProps
 >(({ ...props }, forwardRef) => {
-  return <StyledCheckbox type="checkbox" ref={forwardRef} {...props} />;
+  return <StyledCheckbox type='checkbox' ref={forwardRef} {...props} />;
 });
 
 Checkbox.displayName = 'Checkbox';

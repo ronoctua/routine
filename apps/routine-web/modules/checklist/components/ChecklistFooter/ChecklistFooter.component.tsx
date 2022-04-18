@@ -86,35 +86,35 @@ export const ChecklistFooter = () => {
 
   return (
     <CommandBar
-      rightChildrenDirection="column"
+      rightChildrenDirection='column'
       rightChildren={
         checklistState.status === 'loading' ? (
-          <Button variant="ghost" radius="none" status={'loading'} disabled />
+          <Button variant='ghost' radius='none' status={'loading'} disabled />
         ) : checklistState.inputContent === '' ||
           checklistState.inputContent === null ? (
           <DashboardMenu />
         ) : checklistState.status === 'item-selected' ? (
           <>
             <Button
-              variant="ghost"
-              radius="none"
+              variant='ghost'
+              radius='none'
               leftIcon={<SOLXMark />}
               onClick={handleCancelUpdateItem}
             />
             <Button
-              radius="none"
+              radius='none'
               leftIcon={<SOLTrashCan />}
               onClick={handleDeleteItem}
             />
             <Button
-              radius="none"
+              radius='none'
               leftIcon={<SOLArrowRotate />}
               onClick={handleUpdateItem}
             />
           </>
         ) : (
           <Button
-            radius="none"
+            radius='none'
             leftIcon={<SOLPlay />}
             onClick={handleAddNewItem}
           />
@@ -122,22 +122,22 @@ export const ChecklistFooter = () => {
       }>
       {checklistState.status === 'loading' ? (
         <Surface
-          status="down"
-          border="none"
-          padding="none"
-          radius="none"
+          status='down'
+          border='none'
+          padding='none'
+          radius='none'
           fullWidth
           centerContent
           secondaryText>
           {checklistState.message}
         </Surface>
       ) : (
-        <Label arial-label="Create/edit a item">
+        <Label arial-label='Create/edit a item'>
           <TextField
             data-id={checklistState.inputId}
-            variant="div"
-            border="none"
-            radius="none"
+            variant='div'
+            border='none'
+            radius='none'
             fullWidth
             onInput={(event) =>
               setChecklistState({

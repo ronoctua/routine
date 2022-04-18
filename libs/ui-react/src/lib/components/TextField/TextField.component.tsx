@@ -35,7 +35,7 @@ export const TextField = forwardRef<TextFieldRefType, TextFieldProps>(
         <StyledDivTextField
           ref={forwardRef}
           contentEditable
-          role="textbox"
+          role='textbox'
           {...props}>
           {children}
         </StyledDivTextField>
@@ -51,7 +51,7 @@ export const TextField = forwardRef<TextFieldRefType, TextFieldProps>(
     }
 
     return (
-      <StyledInputTextField type="text" ref={forwardRef} {...props}>
+      <StyledInputTextField type='text' ref={forwardRef} {...props}>
         {children}
       </StyledInputTextField>
     );

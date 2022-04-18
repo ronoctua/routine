@@ -121,7 +121,7 @@ export const ChecklistPageContent = () => {
 
   if (userData.error) {
     return (
-      <Surface status="negative">
+      <Surface status='negative'>
         <h1>Query error!</h1>
         {userData.error.message && <p>{userData.error.message}</p>}
       </Surface>
@@ -130,7 +130,7 @@ export const ChecklistPageContent = () => {
 
   if (!userData.data || !userData.data.user) {
     return (
-      <Surface status="negative" className={delayEffect()}>
+      <Surface status='negative' className={delayEffect()}>
         <p>NO USER DATA IN THE DATABASE!</p>
       </Surface>
     );

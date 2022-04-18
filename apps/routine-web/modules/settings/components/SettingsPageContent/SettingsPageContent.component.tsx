@@ -39,11 +39,11 @@ export const SettingsPageContent = () => {
 
         <Surface>
           <span>
-            <strong data-class="label">{t('nickname')}: </strong> user-nickname
+            <strong data-class='label'>{t('nickname')}: </strong> user-nickname
           </span>
 
           <span>
-            <strong data-class="label">{t('email')}: </strong>{' '}
+            <strong data-class='label'>{t('email')}: </strong>{' '}
             {session.user.email}{' '}
             {session.user.isEmailVerified ? (
               <span style={{ color: 'var(--colors-positive-up)' }}>
@@ -57,13 +57,13 @@ export const SettingsPageContent = () => {
           </span>
 
           <span>
-            <strong data-class="label">{t('language.language')}: </strong>{' '}
+            <strong data-class='label'>{t('language.language')}: </strong>{' '}
             {i18n?.language === 'en' && t('language.en')}
             {i18n?.language === 'pt-BR' && t('language.pt-BR')}{' '}
             {i18n?.language && (
               <Link
-                href="/settings/language"
-                variant="link"
+                href='/settings/language'
+                variant='link'
                 leftIcon={<SOLGear />}
               />
             )}
@@ -93,21 +93,21 @@ export const SettingsPageContent = () => {
           <h3>{t('theme.theme')}</h3>
 
           <Button
-            variant="link"
+            variant='link'
             rightIndicator={theme === themes.woodTheme.className}
             onClick={() => setTheme(themes.woodTheme.className)}>
             {t('theme.wood')}
           </Button>
 
           <Button
-            variant="link"
+            variant='link'
             rightIndicator={theme === themes.futurismTheme.className}
             onClick={() => setTheme(themes.futurismTheme.className)}>
             {t('theme.futurism')}
           </Button>
 
           <Button
-            variant="link"
+            variant='link'
             rightIndicator={theme === themes.reptilianTheme.className}
             onClick={() => setTheme(themes.reptilianTheme.className)}>
             {t('theme.reptilian')}

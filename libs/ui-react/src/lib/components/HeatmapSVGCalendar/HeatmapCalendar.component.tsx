@@ -52,37 +52,37 @@ export const HeatmapCalendar = forwardRef<
     ) => (
       <g
         key={`x-${element.props.x}-y-${element.props.y}`}
-        className="day-group-container"
+        className='day-group-container'
         height={Number(element.props.height)}>
         <g>{!value && element}</g>
         {value && (
-          <g className="day-with-data-group-container">
+          <g className='day-with-data-group-container'>
             <g>{element}</g>
 
             {value.markOne && (
               <circle
-                className="mark mark-one"
+                className='mark mark-one'
                 cx={Number(element.props.x) + 8.1}
                 cy={Number(element.props.y) + 2}
-                r="0.07em"
+                r='0.07em'
               />
             )}
 
             {value.markTwo && (
               <circle
-                className="mark mark-two"
+                className='mark mark-two'
                 cx={Number(element.props.x) + 5.01}
                 cy={Number(element.props.y) + 2}
-                r="0.07em"
+                r='0.07em'
               />
             )}
 
             {value.markThree && (
               <circle
-                className="mark mark-three"
+                className='mark mark-three'
                 cx={Number(element.props.x) + 1.9}
                 cy={Number(element.props.y) + 2}
-                r="0.07em"
+                r='0.07em'
               />
             )}
 
@@ -104,8 +104,8 @@ export const HeatmapCalendar = forwardRef<
             height={Number(element.props.height) + 0.6}
             x={Number(element.props.x) - 0.3}
             y={Number(element.props.y) - 0.3}
-            fill="transparent"
-            className="transparent"
+            fill='transparent'
+            className='transparent'
           />
         </g>
       </g>
@@ -153,7 +153,7 @@ export const HeatmapCalendar = forwardRef<
       <StyledHeatmapCalendar ref={forwardRef} {...props}>
         <HeatmapCalendarElement />
 
-        <Tooltip direction="horizontal" targetValue={tooltipContentData} />
+        <Tooltip direction='horizontal' targetValue={tooltipContentData} />
       </StyledHeatmapCalendar>
     );
   },

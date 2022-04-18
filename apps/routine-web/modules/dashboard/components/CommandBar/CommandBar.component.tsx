@@ -16,8 +16,8 @@ export const CommandBar: React.FC<CommandBarProps> = ({
 }) => {
   return (
     <StyledCommandBar {...props}>
-      <div data-id="left-children-container">{children}</div>
-      <div data-id="right-children-container">{rightChildren}</div>
+      <div data-id='left-children-container'>{children}</div>
+      <div data-id='right-children-container'>{rightChildren}</div>
     </StyledCommandBar>
   );
 };
