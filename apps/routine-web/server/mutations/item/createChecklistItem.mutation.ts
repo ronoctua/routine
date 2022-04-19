@@ -1,7 +1,7 @@
+import { GroupKeys } from '@routine/auth-middleware';
 import { nanoid } from 'nanoid';
 import { extendType, nonNull, objectType, stringArg, floatArg } from 'nexus';
 
-import { Groups } from '../../../shared/keys/groups';
 import { Context } from '../../context';
 
 export const CreateItemChecklistMutation = extendType({
@@ -40,7 +40,7 @@ export const CreateItemChecklistMutation = extendType({
           !context.session ||
           !context.session.user ||
           context.session.user.isEmailVerified === false ||
-          !context.session.user.groups.includes(Groups.CHECKLIST)
+          !context.session.user.groups.includes(GroupKeys.CHECKLIST)
         ) {
           return null;
         }

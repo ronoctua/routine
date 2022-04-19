@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client';
+import { GroupKeys } from '@routine/auth-middleware';
 import { nanoid } from 'nanoid';
-
-import { Groups } from '../../shared/keys/groups';
 
 const prisma = new PrismaClient();
 
@@ -15,7 +14,8 @@ const itemTwoId = nanoid();
 const itemThreeId = nanoid();
 const itemFourId = nanoid();
 
-const { ADMIN, CHECKLIST, DEVELOPER, EXPERIMENTAL, MAINTAINER, USER } = Groups;
+const { ADMIN, CHECKLIST, DEVELOPER, EXPERIMENTAL, MAINTAINER, USER } =
+  GroupKeys;
 
 const seed = async () => {
   await prisma.user.create({

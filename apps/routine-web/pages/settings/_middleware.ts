@@ -1,7 +1,6 @@
 import { authMiddleware } from '@routine/auth-middleware';
+import { GroupKeys } from '@routine/auth-middleware';
 
-import { Groups } from '../../shared/keys/groups';
-
-const { USER } = Groups;
+const { USER } = GroupKeys;
 
 export default authMiddleware([USER]);

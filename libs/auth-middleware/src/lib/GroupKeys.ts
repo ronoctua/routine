@@ -1,9 +1,10 @@
-export enum Groups {
+export enum GroupKeys {
   ADMIN = 'ADMIN',
   BOT = 'BOT',
   CHECKLIST = 'CHECKLIST',
   DEVELOPER = 'DEVELOPER',
   EXPERIMENTAL = 'EXPERIMENTAL',
   MAINTAINER = 'MAINTAINER',
+  PUBLIC = 'PUBLIC',
   USER = 'USER',
 }

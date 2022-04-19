@@ -1,6 +1,6 @@
+import { GroupKeys } from '@routine/auth-middleware';
 import { extendType, objectType } from 'nexus';
 
-import { Groups } from '../../../shared/keys/groups';
 import { Context } from '../../context';
 
 export const GetUserQuery = extendType({
@@ -45,7 +45,7 @@ export const GetUserQuery = extendType({
           !context.session ||
           !context.session.user ||
           context.session.user.isEmailVerified === false ||
-          !context.session.user.groups.includes(Groups.CHECKLIST)
+          !context.session.user.groups.includes(GroupKeys.CHECKLIST)
         ) {
           return null;
         }

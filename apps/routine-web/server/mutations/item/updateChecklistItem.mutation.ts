@@ -1,3 +1,4 @@
+import { GroupKeys } from '@routine/auth-middleware';
 import {
   extendType,
   nonNull,
@@ -7,7 +8,6 @@ import {
   booleanArg,
 } from 'nexus';
 
-import { Groups } from '../../../shared/keys/groups';
 import { Context } from '../../context';
 
 export const UpdateItemChecklistMutation = extendType({
@@ -48,7 +48,7 @@ export const UpdateItemChecklistMutation = extendType({
           !context.session ||
           !context.session.user ||
           context.session.user.isEmailVerified === false ||
-          !context.session.user.groups.includes(Groups.CHECKLIST)
+          !context.session.user.groups.includes(GroupKeys.CHECKLIST)
         ) {
           return null;
         }

@@ -17,26 +17,26 @@ export const DashboardMenu: React.FC = () => {
   return (
     <Menu
       menuState={menuState}
-      contentPosition="bottomRight"
-      closeButtonPosition="bottom">
-      <Surface radius="none">
-        <Link status="secondary" href="/settings" onClick={handleCloseMenu}>
+      contentPosition='bottomRight'
+      closeButtonPosition='bottom'>
+      <Surface radius='none'>
+        <Link status='secondary' href='/settings' onClick={handleCloseMenu}>
           @user-nickname
         </Link>
 
-        <Link href="/metrics" onClick={handleCloseMenu}>
+        <Link href='/metrics' onClick={handleCloseMenu}>
           {t('session.metrics')}
         </Link>
 
-        <Link href="/health" onClick={handleCloseMenu}>
+        <Link href='/health' onClick={handleCloseMenu}>
           {t('session.sports')}
         </Link>
 
-        <Link href="/notes" onClick={handleCloseMenu}>
+        <Link href='/notes' onClick={handleCloseMenu}>
           {t('session.notes')}
         </Link>
 
-        <Link href="/checklist" onClick={handleCloseMenu}>
+        <Link href='/checklist' onClick={handleCloseMenu}>
           {t('session.checklist')}
         </Link>
       </Surface>

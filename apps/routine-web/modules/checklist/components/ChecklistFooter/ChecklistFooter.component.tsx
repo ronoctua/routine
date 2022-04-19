@@ -8,6 +8,7 @@ import { Button, Label, Surface, TextField } from '@routine/ui-react';
 import { useAtom } from 'jotai';
 import { useMutation } from 'urql';
 
+import { ChecklistStatusKeys } from '../../../../shared/keys/ChecklistStatusKeys';
 import {
   createChecklistItemMutation,
   CreateChecklistItemMutationDataType,
@@ -88,12 +89,12 @@ export const ChecklistFooter = () => {
     <CommandBar
       rightChildrenDirection='column'
       rightChildren={
-        checklistState.status === 'loading' ? (
+        checklistState.status === ChecklistStatusKeys.LOADING ? (
           <Button variant='ghost' radius='none' status={'loading'} disabled />
         ) : checklistState.inputContent === '' ||
           checklistState.inputContent === null ? (
           <DashboardMenu />
-        ) : checklistState.status === 'item-selected' ? (
+        ) : checklistState.status === ChecklistStatusKeys.SELECTED ? (
           <>
             <Button
               variant='ghost'
@@ -120,7 +121,7 @@ export const ChecklistFooter = () => {
           />
         )
       }>
-      {checklistState.status === 'loading' ? (
+      {checklistState.status === ChecklistStatusKeys.LOADING ? (
         <Surface
           status='down'
           border='none'

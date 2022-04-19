@@ -1,3 +1,4 @@
+import { ChecklistStatusKeys } from '../../../shared/keys/ChecklistStatusKeys';
 import { DeleteChecklistItemMutationPropsType } from '../../../shared/mutations/deleteChecklistItem.mutation';
 import { ChecklistStateType } from '../states/checklist.state';
 
@@ -23,7 +24,7 @@ export const deleteItem = ({
 
   setChecklistState({
     ...newChecklistState,
-    status: 'loading',
+    status: ChecklistStatusKeys.LOADING,
     message: 'Deleting item...',
   });
 

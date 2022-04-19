@@ -1,10 +1,12 @@
 import { withAuth } from 'next-auth/middleware';
 
+import { GroupKeys } from './GroupKeys';
+
 export const authMiddleware = (targetGroups: string[]) =>
   withAuth({
     callbacks: {
       authorized: ({ token }) => {
-        if (targetGroups.length === 1 && targetGroups[0] === 'PUBLIC') {
+        if (targetGroups.length === 1 && targetGroups[0] === GroupKeys.PUBLIC) {
           return true;
         }
 
@@ -12,7 +14,7 @@ export const authMiddleware = (targetGroups: string[]) =>
           return false;
         }
 
-        const userGroups = token['groups'];
+        const userGroups = token.groups;
 
         if (!userGroups) {
           return false;
@@ -29,7 +31,7 @@ export const authMiddleware = (targetGroups: string[]) =>
 
         const hasGroups = groupsChecker(userGroups, targetGroups);
 
-        if (token && token['isEmailVerified'] && hasGroups) {
+        if (token && token.isEmailVerified && hasGroups) {
           return true;
         }
 

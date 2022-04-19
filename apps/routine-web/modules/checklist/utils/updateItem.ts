@@ -1,3 +1,4 @@
+import { ChecklistStatusKeys } from '../../../shared/keys/ChecklistStatusKeys';
 import { UpdateChecklistItemMutationPropsType } from '../../../shared/mutations/updateChecklistItem.mutation';
 import { ChecklistStateType } from '../states/checklist.state';
 
@@ -22,7 +23,7 @@ export const updateItem = ({
   }
   setChecklistState({
     ...newChecklistState,
-    status: 'loading',
+    status: ChecklistStatusKeys.LOADING,
     message: 'Updating item...',
   });
   updateChecklistItemMutationState({

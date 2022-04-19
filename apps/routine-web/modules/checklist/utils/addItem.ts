@@ -1,3 +1,4 @@
+import { ChecklistStatusKeys } from '../../../shared/keys/ChecklistStatusKeys';
 import { CreateChecklistItemMutationPropsType } from '../../../shared/mutations/createChecklistItem.mutation';
 import { ChecklistStateType } from '../states/checklist.state';
 
@@ -23,7 +24,7 @@ export const addItem = ({
 
   setChecklistState({
     ...newChecklistState,
-    status: 'loading',
+    status: ChecklistStatusKeys.LOADING,
     message: 'Creating new item...',
   });
 

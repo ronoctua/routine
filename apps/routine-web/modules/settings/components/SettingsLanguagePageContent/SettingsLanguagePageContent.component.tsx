@@ -1,4 +1,4 @@
-import { useAuthSession } from '@routine/auth-react';
+import { AuthSessionStatusKeys, useAuthSession } from '@routine/auth-react';
 import { Surface } from '@routine/ui-react';
 import { styled } from '@stitches/react';
 import { i18n, useTranslation } from 'next-i18next';
@@ -19,7 +19,11 @@ export const SettingsLanguagePageContent = () => {
   const { t } = useTranslation('common');
   const router = useRouter();
 
-  if (!session || !session.user || status !== 'authenticated') {
+  if (
+    !session ||
+    !session.user ||
+    status !== AuthSessionStatusKeys.AUTHENTICATED
+  ) {
     return <DashboardLayout footerContent={<SettingsFooter />} />;
   }
 

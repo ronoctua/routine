@@ -1,4 +1,9 @@
-import { useAuthSession, signIn, signOut } from '@routine/auth-react';
+import {
+  useAuthSession,
+  signIn,
+  signOut,
+  AuthSessionStatusKeys,
+} from '@routine/auth-react';
 import { appearEffect, delayEffect } from '@routine/ui-effects';
 import { Button, Surface } from '@routine/ui-react';
 import { styled } from '@stitches/react';
@@ -21,7 +26,11 @@ export const HomePageContent = () => {
     </Surface>
   );
 
-  if (!session || !session.user || status === 'unauthenticated') {
+  if (
+    !session ||
+    !session.user ||
+    status === AuthSessionStatusKeys.UNAUTHENTICATED
+  ) {
     return (
       <StyledHomePageContent className={appearEffect()}>
         {loginContent}
@@ -46,7 +55,7 @@ export const HomePageContent = () => {
     session &&
     session.user &&
     session.user.email &&
-    status === 'authenticated' &&
+    status === AuthSessionStatusKeys.AUTHENTICATED &&
     session.user.isEmailVerified === false
   ) {
     return (
@@ -81,7 +90,7 @@ export const HomePageContent = () => {
     session &&
     session.user &&
     session.user.email &&
-    status === 'authenticated' &&
+    status === AuthSessionStatusKeys.AUTHENTICATED &&
     session.user.isEmailVerified === true
   ) {
     return (
@@ -108,7 +117,7 @@ export const HomePageContent = () => {
     );
   }
 
-  if (status === 'loading') {
+  if (status === AuthSessionStatusKeys.LOADING) {
     return (
       <StyledHomePageContent className={delayEffect()}>
         Loading...

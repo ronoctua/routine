@@ -40,20 +40,20 @@ declare module 'next-auth' {
   }
 }
 
-if (
-  !process.env['COGNITO_CLIENT_ID'] ||
-  !process.env['COGNITO_CLIENT_SECRET'] ||
-  !process.env['COGNITO_ISSUER']
-) {
+const cognitoClientId = process.env['COGNITO_CLIENT_ID'];
+const cognitoClientSecret = process.env['COGNITO_CLIENT_SECRET'];
+const cognitoIssuer = process.env['COGNITO_ISSUER'];
+
+if (!cognitoClientId || !cognitoClientSecret || !cognitoIssuer) {
   throw new Error('Missing authentication environment variables.');
 }
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CognitoProvider({
-      clientId: process.env['COGNITO_CLIENT_ID'],
-      clientSecret: process.env['COGNITO_CLIENT_SECRET'],
-      issuer: process.env['COGNITO_ISSUER'],
+      clientId: cognitoClientId,
+      clientSecret: cognitoClientSecret,
+      issuer: cognitoIssuer,
     }),
   ],
   callbacks: {
@@ -63,6 +63,8 @@ export const authOptions: NextAuthOptions = {
           token.profile,
         )) as unknown as TokenData;
 
+        const groupsKey = 'cognito:groups';
+
         const sessionAuthData = {
           sub: tokenData.sub,
           iat: tokenData.iat,
@@ -70,7 +72,7 @@ export const authOptions: NextAuthOptions = {
           jti: tokenData.jti,
           email: tokenData.email,
           isEmailVerified: tokenData.email_verified,
-          groups: tokenData['cognito:groups'],
+          groups: tokenData[groupsKey],
         };
 
         return sessionAuthData;
@@ -86,8 +88,8 @@ export const authOptions: NextAuthOptions = {
           user: {
             id: token.sub as string,
             email: session.user.email as string,
-            isEmailVerified: token['isEmailVerified'],
-            groups: token['groups'],
+            isEmailVerified: token.isEmailVerified,
+            groups: token.groups,
           },
         });
 

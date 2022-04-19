@@ -4,9 +4,6 @@
     "../../.eslintrc.json",
     "next/core-web-vitals"
   ],
-  "plugins": [
-    "react-hooks"
-  ],
   "ignorePatterns": [
     "!**/*"
   ],

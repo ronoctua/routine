@@ -6,9 +6,9 @@ Below are described some things implemented in this project.
 
 ---
 
-### ▶️ Feature ideas
+### ▶️ Features
 
-For now, the main feature ideas for implementation in this monorepo are just three: (1.) Global authentication service; (2.) Checklist with heatmap calendar; (3.) And fitness tracking integrated with Google Fit and Apple Health.
+For now, the main feature ideas implemented or in the implementation stage in this monorepo are just three: (1.) Global authentication service; (2.) Checklist with heatmap calendar; (3.) And fitness tracking integrated with Google Fit and Apple Health.
 
 The app:
 

@@ -1,2 +1,2 @@
-export { default } from './lib/auth-api';
-export * from './lib/auth-api';
+export { default } from './lib/authApi';
+export * from './lib/authApi';

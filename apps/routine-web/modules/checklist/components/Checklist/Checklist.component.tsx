@@ -5,6 +5,7 @@ import { useCallback } from 'react';
 import { List } from 'react-movable';
 import { useMutation } from 'urql';
 
+import { ChecklistStatusKeys } from '../../../../shared/keys/ChecklistStatusKeys';
 import {
   updateChecklistItemMutation,
   UpdateChecklistItemMutationDataType,
@@ -46,7 +47,7 @@ export const Checklist = () => {
     ({ targetItem, isChecked }) => {
       const newChecklistState = {
         ...checklistState,
-        status: 'item-checked',
+        status: ChecklistStatusKeys.CHECKED,
         message: 'Updating item...',
         inputContent: targetItem.item.content,
         targetItem: {
@@ -71,7 +72,7 @@ export const Checklist = () => {
     ({ targetItem }) => {
       setChecklistState({
         ...checklistState,
-        status: 'item-selected',
+        status: ChecklistStatusKeys.SELECTED,
         message: 'Item selected.',
         inputContent: targetItem.item.content,
         targetItem,
@@ -111,7 +112,7 @@ export const Checklist = () => {
             isDragged={isDragged}
             handleCheckItem={handleCheckItem}
             handleSelectItem={handleSelectItem}
-            disabled={checklistState.status === 'loading'}
+            disabled={checklistState.status === ChecklistStatusKeys.LOADING}
             {...props}
           />
         )}

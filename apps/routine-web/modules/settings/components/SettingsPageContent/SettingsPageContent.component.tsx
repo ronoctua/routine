@@ -1,4 +1,8 @@
-import { useAuthSession, signOut } from '@routine/auth-react';
+import {
+  useAuthSession,
+  signOut,
+  AuthSessionStatusKeys,
+} from '@routine/auth-react';
 import { SOLGear } from '@routine/ui-icons';
 import { Button, Label, Surface, Switch, useTheme } from '@routine/ui-react';
 import { themes } from '@routine/ui-web';
@@ -17,7 +21,12 @@ export const SettingsPageContent = () => {
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation('common');
 
-  if (!theme || !session || !session.user || status !== 'authenticated') {
+  if (
+    !theme ||
+    !session ||
+    !session.user ||
+    status !== AuthSessionStatusKeys.AUTHENTICATED
+  ) {
     return <DashboardLayout footerContent={<SettingsFooter />} />;
   }
 

@@ -1,3 +1,4 @@
+import { ChecklistStatusKeys } from '../../../shared/keys/ChecklistStatusKeys';
 import { arrayMove } from '../../../shared/libs/arrayHandler';
 import { UpdateChecklistItemMutationPropsType } from '../../../shared/mutations/updateChecklistItem.mutation';
 import { ChecklistStateType } from '../states/checklist.state';
@@ -40,7 +41,7 @@ export const moveArray = ({
 
   setChecklistState({
     ...newChecklistStateData,
-    status: 'loading',
+    status: ChecklistStatusKeys.LOADING,
     message: 'Updating item position...',
   });
 
