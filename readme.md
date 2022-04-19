@@ -10,8 +10,6 @@ Below are described some things implemented in this project.
 
 For now, the main feature ideas implemented or in the implementation stage in this monorepo are just three: (1.) Global authentication service; (2.) Checklist with heatmap calendar; (3.) And fitness tracking integrated with Google Fit and Apple Health.
 
-The app:
-
 <div align="center">
   <a href="https://github.com/ronoctua/routine">
     <img alt="Routine app animated screenshot" src="assets/routine.gif" />
